@@ -1,0 +1,27 @@
+{
+  "name": "funciones-en-js",
+  "version": "1.0.0",
+  "description": "funciones de suma, resta, multiplicacion y division",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "node-sass src/assets/sass/app.scss -wo src/assets/css/",
+    "css:watch": "npm run build-css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HilcaDev/funciones-en-JS.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "HilcaDev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HilcaDev/funciones-en-JS/issues"
+  },
+  "homepage": "https://github.com/HilcaDev/funciones-en-JS#readme",
+  "dependencies": {
+    "node-sass": "^5.0.0"
+  }
+}
