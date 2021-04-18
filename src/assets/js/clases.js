@@ -21,5 +21,5 @@ class MathOperations {
 const operations = new MathOperations();
 
 console.log(operations.addition(2, 3));
-console.log(operationsTwo.addition(3, 4));
-console.log(operationsThree.addition(6, 9));
+console.log(operations.addition(3, 4));
+console.log(operations.addition(6, 9));
