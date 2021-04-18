@@ -28,19 +28,36 @@ console.log(operations.addition(2, 3));
 console.log(operations.addition(3, 4));
 console.log(operations.division(6, 0));
 
-class Calculadora {
+class Calculator {
     operations;
+    configuration = {};
 
-    constructor(operations) {
+    constructor(operations, configuration = {}) {
         this.operations = operations;
+        this.configuration = configuration;
     }
 
     total(subtotal, total) {
-        return this.operations.addition(subtotal, total);
+        if (this.configuration.isAddition)
+            throw "No tienes habilitada la configuracion para Calcular el Total";
+        else
+            return this.operations.addition(subtotal, total);
+    }
+
+    calculateIVA(total, percentage) {
+        let result = this.operations.multiply(total, percentage);
+        return result;
+    }
+
+    cancelShop(total) {
+        return this.operations.multiply(total, 0);
     }
 }
 
-console.log('Calculadora');
-const calculator = new Calculadora(new MathOperations);
+console.log('Calculator');
+//Inyeccion de Depencia
+const calculator = new Calculator(new MathOperations);
 
 console.log(calculator.total(5, 6));
+console.log(calculator.calculateIVA(10, 0.19));
+console.log(calculator.cancelShop(calculator.total(5, 6)));
