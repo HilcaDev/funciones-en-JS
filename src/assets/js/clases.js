@@ -57,6 +57,7 @@ class Calculator {
 
 console.log('Calculator');
 //Inyeccion de Depencia
+//const calculator = new Calculator(new MathOperations);
 const calculator = new Calculator(operations);
 
 console.log(calculator.total(5, 6));
