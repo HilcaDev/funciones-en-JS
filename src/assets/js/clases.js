@@ -1,5 +1,8 @@
-
+// SRP: Single Responsibility Principle
 class MathOperations {
+
+    numberOne = 0;
+    numberTwo = 0;
 
     constructor(numberOne, numberTwo) {
         this.numberOne = numberOne;
@@ -11,23 +14,23 @@ class MathOperations {
     }
 
     subtraction() {
-        result = this.numberOne - this.numberTwo;
-        return result;
-        console.log(`La resta de los numeros es igual a ${result}`)
+        return this.numberOne - this.numberTwo
     }
 
     multiply() {
-        result = this.numberOne * this.numberTwo;
-        return result;
-        console.log(`La multiplicacion de los numeros es igual a ${result}`)
+        return this.numberOne * this.numberTwo
     }
 
     division() {
-        result = this.numberOne / this.numberTwo;
-        return result;
-        console.log(`La division de los numeros es igual a ${result}`)
+        return this.numberOne / this.numberTwo;
     }
 }
 
-const obj1 = new MathOperations(2,6);
-console.log(obj1.addition());
+const operations = new MathOperations(2,6);
+const operationsTwo = new MathOperations(15,3);
+const operationsThree = new MathOperations(8,3);
+
+console.log(operations.addition());
+console.log(operationsTwo.addition());
+console.log(operationsThree.addition());
+console.log(operationsTwo.multiply());
