@@ -1,36 +1,25 @@
 // SRP: Single Responsibility Principle
 class MathOperations {
 
-    numberOne = 0;
-    numberTwo = 0;
-
-    constructor(numberOne, numberTwo) {
-        this.numberOne = numberOne;
-        this.numberTwo = numberTwo;
+    addition(numberOne, numberTwo) {
+        return numberOne + numberTwo;
     }
 
-    addition() {
-        return this.numberOne + this.numberTwo;
+    subtraction(numberOne, numberTwo) {
+        return numberOne - numberTwo
     }
 
-    subtraction() {
-        return this.numberOne - this.numberTwo
+    multiply(numberOne, numberTwo) {
+        return numberOne * numberTwo
     }
 
-    multiply() {
-        return this.numberOne * this.numberTwo
-    }
-
-    division() {
-        return this.numberOne / this.numberTwo;
+    division(numberOne, numberTwo) {
+        return numberOne / numberTwo;
     }
 }
 
-const operations = new MathOperations(2,6);
-const operationsTwo = new MathOperations(15,3);
-const operationsThree = new MathOperations(8,3);
+const operations = new MathOperations();
 
-console.log(operations.addition());
-console.log(operationsTwo.addition());
-console.log(operationsThree.addition());
-console.log(operationsTwo.multiply());
+console.log(operations.addition(2, 3));
+console.log(operationsTwo.addition(3, 4));
+console.log(operationsThree.addition(6, 9));
