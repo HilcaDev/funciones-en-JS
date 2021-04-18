@@ -1,28 +1,30 @@
 
-class OperacionesMatematicas {
-    constructor(numero1,numero2){
-        this.numero1 = numero1;
-        this.numero2 = numero2;
+class MathOperations {
+
+    constructor(numberOne, numberTwo) {
+        this.numberOne = numberOne;
+        this.numberTwo = numberTwo;
     }
 
-    sumaNumerosEnteros(){
-        return this.numero1+this.numero2;
+    addition() {
+        return this.numberOne + this.numberTwo;
     }
-    restaNumerosEnteros(){
-        resultado= this.numero1-this.numero2;
-        return resultado;
-        console.log(`La resta de los numeros es igual a ${resultado}`)
+
+    subtraction() {
+        result = this.numberOne - this.numberTwo;
+        return result;
+        console.log(`La resta de los numeros es igual a ${result}`)
     }
-    multiplicacionNumerosEnteros(){
-        resultado= this.numero1*this.numero2;
-        return resultado;
-        console.log(`La multiplicacion de los numeros es igual a ${resultado}`)
+
+    multiply() {
+        result = this.numberOne * this.numberTwo;
+        return result;
+        console.log(`La multiplicacion de los numeros es igual a ${result}`)
     }
-    divisionNumerosEnteros(){
-        resultado= this.numero1/this.numero2;
-        return resultado;
-        console.log(`La division de los numeros es igual a ${resultado}`)
+
+    division() {
+        result = this.numberOne / this.numberTwo;
+        return result;
+        console.log(`La division de los numeros es igual a ${result}`)
     }
 }
-
-console.log(sumaNumerosEnteros(2,3));
