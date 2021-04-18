@@ -28,3 +28,6 @@ class MathOperations {
         console.log(`La division de los numeros es igual a ${result}`)
     }
 }
+
+const obj1 = new MathOperations(2,6);
+console.log(obj1.addition());
