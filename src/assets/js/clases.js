@@ -25,7 +25,8 @@ const operations = new MathOperations();
 
 console.log('MathOperations');
 console.log(operations.addition(2, 3));
-console.log(operations.addition(3, 4));
+console.log(operations.subtraction(3, 4));
+console.log(operations.multiply(3, 4));
 console.log(operations.division(6, 0));
 
 class Calculator {
@@ -56,7 +57,7 @@ class Calculator {
 
 console.log('Calculator');
 //Inyeccion de Depencia
-const calculator = new Calculator(new MathOperations);
+const calculator = new Calculator(operations);
 
 console.log(calculator.total(5, 6));
 console.log(calculator.calculateIVA(10, 0.19));
