@@ -66,4 +66,35 @@ console.log(calculator.total(5, 6));
 console.log(calculator.calculateIVA(10, 0.19));
 console.log(calculator.cancelShop(calculator.total(5, 6)));
 
-console.log("Caja Registradora");
+console.log("Caja Registradora");   
+
+class CashResgister {
+    
+    calculator;
+
+    constructor (calculator) {
+        this.calculator = calculator;
+    }
+
+    totalCalculado(totalOne,totalTwo) {
+         let result = this.calculator.total(totalOne,totalTwo);
+         return result;
+    }
+
+    totalIVA(total, percentage) {
+        let result = this.calculator.calculateIVA(total, percentage);
+        return result;
+    }
+
+    totalCancelShop(total) {
+        return this.calculator.cancelShop(total);
+    }
+
+}
+
+const cashResgister = new CashResgister(calculator);
+
+console.log(cashResgister.totalCalculado(400,400));
+console.log(cashResgister.totalIVA(400,0.1));
+console.log(cashResgister.totalCancelShop(CashResgister.totalCalculado(300,400)));
+
