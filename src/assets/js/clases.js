@@ -77,13 +77,13 @@ class CashResgister {
     }
 
     totalCalculado(totalOne,totalTwo) {
-         let result = this.calculator.total(totalOne,totalTwo);
-         return result;
+        return this.calculator.total(totalOne,totalTwo);
+         
     }
 
     totalIVA(total, percentage) {
-        let result = this.calculator.calculateIVA(total, percentage);
-        return result;
+        return this.calculator.calculateIVA(total, percentage);
+       
     }
 
     totalCancelShop(total) {
