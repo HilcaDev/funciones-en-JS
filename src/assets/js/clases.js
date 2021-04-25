@@ -55,8 +55,6 @@ class Calculator {
     }
 }
 
-//Definir una caja registradora, que me permita mostrar el total calculado, mostrar el iva calculado, y mostrar si una compra fue cancelada
-
 console.log('Calculator');
 //Inyeccion de Depencia
 //const calculator = new Calculator(new MathOperations);
@@ -68,6 +66,7 @@ console.log(calculator.cancelShop(calculator.total(5, 6)));
 
 console.log("Caja Registradora");   
 
+//Definir una caja registradora, que me permita mostrar el total calculado, mostrar el iva calculado, y mostrar si una compra fue cancelada
 class CashResgister {
     
     calculator;
