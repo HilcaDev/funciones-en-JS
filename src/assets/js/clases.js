@@ -70,6 +70,7 @@ console.log("Caja Registradora");
 class CashResgister {
     
     calculator;
+    
 
     constructor (calculator) {
         this.calculator = calculator;
@@ -92,8 +93,6 @@ class CashResgister {
 }
 
 const cashResgister = new CashResgister(calculator);
-
-console.log(cashResgister.totalCalculado(400,400));
 console.log(cashResgister.totalIVA(400,0.1));
-console.log(cashResgister.totalCancelShop(CashResgister.totalCalculado(300,400)));
-
+console.log(cashResgister.totalCalculado(400,400));
+console.log(cashResgister.totalCancelShop(cashResgister.totalCalculado(200,500)));
