@@ -1,0 +1,16 @@
+.form {
+    display: block;
+}
+
+.form-group {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    padding: 10px;
+}
+
+.show-error {
+    display: none;
+}
