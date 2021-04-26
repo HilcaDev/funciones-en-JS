@@ -1,4 +1,8 @@
 // SRP: Single Responsibility Principle
+
+//establece que cada módulo o clase debe tener responsabilidad sobre una sola parte de la 
+//funcionalidad proporcionada por el software y esta responsabilidad debe estar 
+//encapsulada en su totalidad por la clase
 class MathOperations {
 
     addition(numberOne, numberTwo) {
@@ -14,14 +18,19 @@ class MathOperations {
     }
 
     division(numberOne, numberTwo) {
-        if (numberTwo === 0)
+        if (this.checkDenominator(numberTwo))
             return 0;
         else
             return numberOne / numberTwo;
     }
+
+    //private
+    checkDenominator(number) {
+        return (number) ? true : false;
+    }
 }
 
-const operations = new MathOperations();
+const operations = new MathOperations;
 
 console.log('MathOperations');
 console.log(operations.addition(5, 3));
@@ -57,8 +66,8 @@ class Calculator {
 
 console.log('Calculator');
 //Inyeccion de Depencia
-//const calculator = new Calculator(new MathOperations);
-const calculator = new Calculator(operations);
+const calculator = new Calculator(new MathOperations);
+//const calculator = new Calculator(operations);
 
 console.log(calculator.total(5, 6));
 console.log(calculator.calculateIVA(10, 0.19));
@@ -69,27 +78,23 @@ console.log("Caja Registradora");
 //Definir una caja registradora, que me permita mostrar el total calculado, mostrar el iva calculado, y mostrar si una compra fue cancelada
 class CashResgister {
     
-    calculator;
-    
+    calculator;    
 
     constructor (calculator) {
         this.calculator = calculator;
     }
 
     totalCalculado(totalOne,totalTwo) {
-        return this.calculator.total(totalOne,totalTwo);
-         
+        return this.calculator.total(totalOne,totalTwo);         
     }
 
     totalIVA(total, percentage) {
-        return this.calculator.calculateIVA(total, percentage);
-       
+        return this.calculator.calculateIVA(total, percentage);       
     }
 
     totalCancelShop(total) {
         return this.calculator.cancelShop(total);
     }
-
 }
 
 const cashResgister = new CashResgister(calculator);
