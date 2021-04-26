@@ -24,7 +24,7 @@ class MathOperations {
 const operations = new MathOperations();
 
 console.log('MathOperations');
-console.log(operations.addition(2, 3));
+console.log(operations.addition(5, 3));
 console.log(operations.subtraction(3, 4));
 console.log(operations.multiply(3, 4));
 console.log(operations.division(6, 0));
