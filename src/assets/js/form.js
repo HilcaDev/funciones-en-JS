@@ -12,23 +12,46 @@
         }
 
         submit(fields) {
-            let field = Array.from(this.getFields(fields));
+            
 
-            if(this.getValues(field))
+            let field = Array.from(this.getFields(fields));
+            //console.log(field);
+
+
+            let valuesVector=[];
+
+            for (let i = 0; i < field.length; i++) {
+                valuesVector.push(field[i].value);
+            }
+
+            console.log(valuesVector);
+            let valuesString = valuesVector.join("  ");
+            //console.log(palabras);
+
+            let newText = document.createElement("p");
+            let content = document.createTextNode("La informacion digitada es "+valuesString);
+            newText.appendChild(content);
+            document.body.appendChild(newText);
+            
+
+            if (this.getValues(field))
                 this.showError('error');
+
+            
         }
 
         //private
         getFields(fields) {
             return document.getElementsByClassName(fields);
+
         }
 
         //private
         getValues(inputs) {
-            let  status = false;
+            let status = false;
 
             inputs.forEach(input => {
-                if(this.validator.isEmptyOrNull(input.value))
+                if (this.validator.isEmptyOrNull(input.value))
                     status = true;
             });
 
