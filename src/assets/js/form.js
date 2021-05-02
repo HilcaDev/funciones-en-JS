@@ -7,60 +7,83 @@
 
         validator;
 
+        msgErrorEmpty = 'Por favor llena los campos';
+        msgOnlyNumber = 'El Telefono debe ser numerico';
+
         constructor(validator) {
             this.validator = validator;
         }
 
-        submit(fields) {
-            
+        submit(form) {
+            let inputs = this.getFields(form);
 
-            let field = Array.from(this.getFields(fields));
-            //console.log(field);
-
-
-            let valuesVector=[];
-
-            for (let i = 0; i < field.length; i++) {
-                valuesVector.push(field[i].value);
+            try {
+                this.checkInputValues(inputs);
+                this.processForm(inputs);
+            } catch (e) {
+                this.showError('error', e);
             }
-
-            console.log(valuesVector);
-            let valuesString = valuesVector.join("  ");
-            //console.log(palabras);
-
-            let newText = document.createElement("p");
-            let content = document.createTextNode("La informacion digitada es "+valuesString);
-            newText.appendChild(content);
-            document.body.appendChild(newText);
-            
-
-            if (this.getValues(field))
-                this.showError('error');
-
-            
         }
 
-        //private
+        processForm(formValues) {
+            let results = [];
+            formValues.forEach(input => results.push(input.value));
+
+            this.printToHTML(results);
+            this.hideError('error');
+        }
+
+        printToHTML(toPrint) {
+            let resultNode = document.querySelector('.result');
+
+            resultNode.innerHTML = toPrint.join('<br>');
+        }
+
         getFields(fields) {
-            return document.getElementsByClassName(fields);
-
+            return Array.from(document.getElementsByClassName(fields));
         }
 
-        //private
-        getValues(inputs) {
+        checkInputValues(inputs) {
             let status = false;
 
             inputs.forEach(input => {
                 if (this.validator.isEmptyOrNull(input.value))
-                    status = true;
+                    throw this.msgErrorEmpty;
+                else {
+                    if (this.checkInputNumber(input))
+                        throw this.msgOnlyNumber;
+                }
             });
 
             return status;
         }
 
-        //private
-        showError(error) {
+        checkInputNumber(element) {
+            let status = false;
+
+            if (this.inputIsNumber(element)) {
+                if (this.isNumber(element.value))
+                    status = true;
+            }
+
+            return status;
+        }
+
+        isNumber(value) {
+            return (this.validator.isEmptyOrNull(value.match(/[0-9]/gi))) ? true : false;
+        }
+
+        inputIsNumber(field) {
+            return field.classList.contains('form-control-number');
+        }
+
+        showError(error, message) {
             document.getElementById(error).style.display = 'block';
+            document.getElementById(error).innerHTML = message;
+        }
+
+        hideError(error) {
+            document.getElementById(error).style.display = 'none';
         }
     }
 
