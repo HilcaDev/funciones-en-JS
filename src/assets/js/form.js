@@ -26,7 +26,7 @@
 
             console.log(valuesVector);
             let valuesString = valuesVector.join("  ");
-            //console.log(palabras);
+            
 
             let newText = document.createElement("p");
             let content = document.createTextNode("La informacion digitada es "+valuesString);
@@ -86,6 +86,7 @@
 
     btn.addEventListener('click', function () {
         form.submit('form-control');
+       
     })
 
     // Realizar el proceso final del formulario mostrando el resultado en pantalla de los datos recojidos
