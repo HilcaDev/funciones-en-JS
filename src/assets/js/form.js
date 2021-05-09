@@ -47,42 +47,42 @@
             return Array.from(document.getElementsByClassName(fields));
         }
 
-        checkInputValues(inputs) {
+        checkInputValues(inputs) { // recibe el vector de clases
             let status = false;
 
             // por cada clase accedida va a validar si esta vacia o tienen datos
             inputs.forEach(input => {
-                if (this.validator.isEmptyOrNull(input.value))
+                if (this.validator.isEmptyOrNull(input.value)) // si los campos estan vacios, dice que complete
                     throw this.msgErrorEmpty;
                 else {
                     if (this.checkInputNumber(input))
-                        throw this.msgOnlyNumber;
+                        throw this.msgOnlyNumber; // si el item no es un numero, pide que solo acepta numeros 
                 }
             });
 
             return status;
         }
 
-        checkInputNumber(element) {
+        checkInputNumber(element) { // recibe cada item de clase en cada iteracion
             let status = false;
 
-            if (this.inputIsNumber(element)) {
-                if (this.isNumber(element.value))
+            if (this.inputIsNumber(element)) { // devuelve true or false
+                if (this.isNumber(element.value)) // recibe el valor de la clase
                     status = true;
             }
 
             return status;
         }
 
-        isNumber(value) {
+        isNumber(value) { // devuelve true or false depeniodendo si encuentra una conincidencia o no
             return (this.validator.isEmptyOrNull(value.match(/[0-9]/gi))) ? true : false;
         }
 
-        inputIsNumber(field) {
+        inputIsNumber(field) { // devuelve true or false dependiendo si contienen o la clase indicada 
             return field.classList.contains('form-control-number');
         }
 
-        showError(error, message) {
+        showError(error, message) { // muestra el mensaje en poantalla
             document.getElementById(error).style.display = 'block';
             document.getElementById(error).innerHTML = message;
         }
